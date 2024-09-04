@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura Interativa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        .choice {
+            margin: 10px 0;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aventura na Floresta Mágica</h1>
+    <div id="story">
+        <p>Você se encontra na entrada de uma floresta mágica. O sol brilha e uma brisa suave sopra. Você pode:</p>
+        <div class="choice">
+            <button onclick="choose('left')">Seguir pela trilha da esquerda</button>
+            <button onclick="choose('right')">Seguir pela trilha da direita</button>
+        </div>
+    </div>
+
+    <div id="left" class="hidden">
+        <p>Você decide seguir pela trilha da esquerda e logo encontra uma pequena cabana. A porta está entreaberta. Você:</p>
+        <div class="choice">
+            <button onclick="choose('enterCabin')">Entrar na cabana</button>
+            <button onclick="choose('ignoreCabin')">Ignorar a cabana e continuar caminho</button>
+        </div>
+    </div>
+
+    <div id="right" class="hidden">
+        <p>Você segue pela trilha da direita e encontra um lago encantado. As águas brilham sob o sol. Você:</p>
+        <div class="choice">
+            <button onclick="choose('swim')">Decide nadar no lago</button>
+            <button onclick="choose('rest')">Sentar e descansar à beira do lago</button>
+        </div>
+    </div>
+
+    <div id="enterCabin" class="hidden">
+        <p>Você entra na cabana e encontra um velho sábio. Ele oferece a você uma poção mágica. Você:</p>
+        <div class="choice">
+            <button onclick="end('drink')">Bebe a poção</button>
+            <button onclick="end('leaveCabin')">Sai da cabana sem nada</button>
+        </div>
+    </div>
+
+    <div id="ignoreCabin" class="hidden">
+        <p>Você decide ignorar a cabana e continuar seu caminho. Depois de um tempo, encontra um lindo campo de flores. Você está feliz e aproveita o momento.</p>
+        <button onclick="restart()">Recomeçar</button>
+    </div>
+
+    <div id="swim" class="hidden">
+        <p>Você decide nadar no lago e se sente revigorado. No entanto, uma criatura aquática aparece e o ajuda a explorar o fundo do lago. Você encontra um tesouro!</p>
+        <button onclick="restart()">Recomeçar</button>
+    </div>
+
+    <div id="rest" class="hidden">
+        <p>Enquanto descansa à beira do lago, você vê um grupo de fadas dançando. Elas te convidam para se juntar a elas e você tem uma noite mágica.</p>
+        <button onclick="restart()">Recomeçar</button>
+    </div>
+
+    <div id="drink" class="hidden">
+        <p>A poção mágica transforma você em um belo pássaro e você voa livre pela floresta. Você experimenta a liberdade e a felicidade, e a floresta se torna sua nova casa.</p>
+        <button onclick="restart()">Recomeçar</button>
+    </div>
+
+    <div id="leaveCabin" class="hidden">
+        <p>Você sai da cabana e volta para a floresta, mas se sente perdido. Depois de um tempo, encontra um caminho de volta para casa, mas nunca mais volta à floresta mágica.</p>
+        <button onclick="restart()">Recomeçar</button>
+    </div>
+
+    <script>
+        function choose(choice) {
+            document.getElementById("story").classList.add("hidden");
+            document.getElementById("left").classList.add("hidden");
+            document.getElementById("right").classList.add("hidden");
+            document.getElementById("enterCabin").classList.add("hidden");
+            document.getElementById("ignoreCabin").classList.add("hidden");
+            document.getElementById("swim").classList.add("hidden");
+            document.getElementById("rest").classList.add("hidden");
+            document.getElementById("drink").classList.add("hidden");
+            document.getElementById("leaveCabin").classList.add("hidden");
+
+            if (choice === "left") {
+                document.getElementById("left").classList.remove("hidden");
+            } else if (choice === "right") {
+                document.getElementById("right").classList.remove("hidden");
+            } else if (choice === "enterCabin") {
+                document.getElementById("enterCabin").classList.remove("hidden");
+            } else if (choice === "ignoreCabin") {
+                document.getElementById("ignoreCabin").classList.remove("hidden");
+            } else if (choice === "swim") {
+                document.getElementById("swim").classList.remove("hidden");
+            } else if (choice === "rest") {
+                document.getElementById("rest").classList.remove("hidden");
+            }
+        }
+
+        function end(choice) {
+            document.getElementById("story").classList.add("hidden");
+            document.getElementById("left").classList.add("hidden");
+            document.getElementById("right").classList.add("hidden");
+            document.getElementById("enterCabin").classList.add("hidden");
+            document.getElementById("ignoreCabin").classList.add("hidden");
+            document.getElementById("swim").classList.add("hidden");
+            document.getElementById("rest").classList.add("hidden");
+            document.getElementById("drink").classList.add("hidden");
+            document.getElementById("leaveCabin").classList.add("hidden");
+
+            if (choice === "drink") {
+                document.getElementById("drink").classList.remove("hidden");
+            } else if (choice === "leaveCabin") {
+                document.getElementById("leaveCabin").classList.remove("hidden");
+            }
+        }
+
+        function restart() {
+            document.getElementById("story").classList.remove("hidden");
+            document.getElementById("left").classList.add("hidden");
+            document.getElementById("right").classList.add("hidden");
+            document.getElementById("enterCabin").classList.add("hidden");
+            document.getElementById("ignoreCabin").classList.add("hidden");
+            document.getElementById("swim").classList.add("hidden");
+            document.getElementById("rest").classList.add("hidden");
+            document.getElementById("drink").classList.add("hidden");
+            document.getElementById("leaveCabin").classList.add("hidden");
+        }
+    </script>
+</body>
+</html>
